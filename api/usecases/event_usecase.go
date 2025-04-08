@@ -2,6 +2,7 @@ package usecases
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"math/rand"
 	"sync"
@@ -74,5 +75,7 @@ func (e *EventUseCase) broadcastEvent(event model.Event) {
 }
 
 func generateID() string {
-	return time.Now().Format("20060102150405") + "-" + string(rand.Intn(1000))
+	timestamp := time.Now().Format("20060102150405")
+	randomNum := rand.Intn(1000)
+	return fmt.Sprintf("%s-%03d", timestamp, randomNum)
 }
