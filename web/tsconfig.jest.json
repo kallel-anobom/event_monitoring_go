@@ -1,0 +1,19 @@
+// tsconfig.jest.json
+{
+  "extends": "./tsconfig.json", // Herda a configuração base
+  "compilerOptions": {
+    "jsx": "react-jsx", // Habilita JSX
+    "types": [
+      "jest",
+      "node"
+    ], // Adiciona tipos do Jest
+    "esModuleInterop": true,
+    "module": "commonjs" // Necessário para Jest
+  },
+  "include": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx"
+  ]
+}
