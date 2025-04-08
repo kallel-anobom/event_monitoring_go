@@ -9,7 +9,7 @@ const mockEvents = [
 ];
 
 describe("EventTable", () => {
-  it("renderiza os eventos recebidos corretamente", () => {
+  it("should renders received events correctly", () => {
     render(
       <EventsContext.Provider
         value={{ events: mockEvents, status: "connected" }}
