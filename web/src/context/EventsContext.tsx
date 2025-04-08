@@ -6,7 +6,9 @@ type EventsContextType = {
   status: "connected" | "disconnected" | "connecting";
 };
 
-const EventsContext = createContext<EventsContextType | undefined>(undefined);
+export const EventsContext = createContext<EventsContextType | undefined>(
+  undefined
+);
 
 export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
   const { events, status } = useWebSocketClient("ws://localhost:8080/events");
