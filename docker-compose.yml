@@ -1,0 +1,43 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+    networks:
+      - app-network
+  web:
+    build: ./web
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://api:8001
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    networks:
+      - app-network
+    command: npm run dev -- --host 0.0.0.0
+
+volumes:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge
