@@ -11,7 +11,7 @@ export const EventsContext = createContext<EventsContextType | undefined>(
 );
 
 export const EventsProvider = ({ children }: { children: React.ReactNode }) => {
-  const { events, status } = useWebSocketClient("ws://localhost:8080/events");
+  const { events, status } = useWebSocketClient("ws://localhost:8001/ws");
 
   return (
     <EventsContext.Provider value={{ events, status }}>

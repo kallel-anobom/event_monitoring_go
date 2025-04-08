@@ -5,7 +5,7 @@ const EventTable = memo(() => {
   const { events } = useEvents();
 
   return (
-    <table>
+    <table className="table-container">
       <thead>
         <tr>
           <th>ID</th>
