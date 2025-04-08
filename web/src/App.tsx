@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <EventsProvider>
-        <h1>Eventos em tempo real</h1>
+        <h1>Eventos</h1>
         <ConnectionStatus />
         <EventTable />
       </EventsProvider>
